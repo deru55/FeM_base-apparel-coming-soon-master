@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap");
+
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  font: inherit;
+  box-sizing: border-box;
+}
+
+img,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+span {
+  display: block;
+}
+
+:root {
+  --ff-default: "Josefin Sans", sans-serif;
+
+  --fw-300: 300;
+  --fw-400: 400;
+  --fw-600: 600;
+
+  --clr-primary-1: hsl(0, 36%, 70%);
+  --clr-primary-2: hsl(0, 93%, 68%);
+
+  --clr-neutral-1: hsl(0, 6%, 24%);
+
+  --gradient-1: linear-gradient(135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%));
+  --gradient-2: linear-gradient(135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%));
+}
+
+/* utilities classes */
+.hidden {
+  visibility: hidden;
+}
+
+.flow > * + * {
+  margin-top: var(--flow-spacer, 1rem);
+}
+
+body {
+  --padding-inline: 2rem;
+
+  font-family: var(--ff-default);
+  font-size: 0.85rem;
+  font-weight: var(--fw-600);
+  color: var(--clr-primary-1);
+  line-height: 1.6;
+  background: var(--gradient-1);
+  display: grid;
+  max-width: 35rem;
+  min-height: 100vh;
+  margin-inline: auto;
+}
+
+@media screen and (max-width: 1025px) {
+  body {
+    text-align: center;
+  }
+}
+
+header {
+  padding-inline: var(--padding-inline);
+  display: flex;
+  align-items: center;
+}
+
+.img-logo {
+  width: max(6rem, 10vw);
+}
+
+.img-hero > img {
+  min-width: 100%;
+}
+
+.main-body {
+  padding-inline: var(--padding-inline);
+}
+
+.main-body__title {
+  font-size: 2.5rem;
+  color: var(--clr-neutral-1);
+  line-height: 1.05;
+  letter-spacing: 0.5rem;
+}
+
+.main-body__title span {
+  font-weight: var(--fw-300);
+  color: var(--clr-primary-1);
+}
+
+.main-body__form {
+  --flow-spacer: 2.25rem;
+  --padding-form: 0.75rem 1.5rem;
+  --br: 100vh;
+
+  font-weight: var(--fw-300);
+}
+
+.wrap {
+  position: relative;
+  min-height: max-content;
+  padding: 1px;
+}
+
+.wrap > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  height: 100%;
+}
+
+.main-body__form input[type="email"] {
+  width: 100%;
+  background: var(--gradient-1);
+  border: 1px solid var(--clr-primary-1);
+  outline: 1px solid transparent;
+  border-right: transparent;
+  border-radius: var(--br);
+  padding: var(--padding-form);
+  padding-right: 7rem;
+}
+
+.main-body__form input[type="email"]::placeholder {
+  opacity: 0.3;
+}
+
+.main-body__form button[type="submit"] {
+  cursor: pointer;
+  border: 0;
+  border-radius: var(--br);
+  padding: var(--padding-form);
+  background: var(--gradient-2);
+  height: 100%;
+  box-shadow: 0px 10px 25px 0px var(--clr-primary-1);
+}
+
+.main-body__form button[type="submit"]:where(:hover, :focus) {
+  background: hsl(0, 80%, 90%);
+}
+
+.main-body__form__error-msg {
+  font-size: 0.75rem;
+  text-align: left;
+  font-weight: var(--fw-400);
+  padding: var(--padding-form);
+  color: var(--clr-primary-2);
+}
+
+@media screen and (min-width: 1100px) {
+  body {
+    --padding-inline: 17rem;
+
+    font-size: 1rem;
+    max-width: initial;
+    grid-template-columns: auto max-content;
+    background-image: url(images/bg-pattern-desktop.svg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+
+  header {
+    display: block;
+    padding-top: 4rem;
+  }
+
+  .img-hero {
+    grid-area: 1 / 2 / 3 / 3;
+  }
+
+  .img-hero img {
+    min-height: 100%;
+  }
+
+  .main-body__title {
+    font-size: 4rem;
+    letter-spacing: 1rem;
+  }
+
+  .main-body__form button[type="submit"] {
+    padding-inline: 2.75rem;
+  }
+}
