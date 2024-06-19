@@ -4,11 +4,11 @@ const iconError = document.getElementById("icon-error");
 const errorMsg = document.getElementById("error-msg");
 
 emailInput.addEventListener("input", () => {
+  emailInput.setCustomValidity("");
   iconError.classList.add("hidden");
   errorMsg.classList.add("hidden");
 
-  emailInput.style.borderColor = "var(--clr-primary-1)";
-  emailInput.style.outlineColor = "transparent";
+  emailInput.classList.remove("error-clr");
 });
 
 emailInput.addEventListener("invalid", () => {
@@ -17,6 +17,5 @@ emailInput.addEventListener("invalid", () => {
   iconError.classList.remove("hidden");
   errorMsg.classList.remove("hidden");
 
-  emailInput.style.borderColor = "var(--clr-primary-2)";
-  emailInput.style.outlineColor = "var(--clr-primary-2)";
+  emailInput.classList.add("error-clr");
 });
